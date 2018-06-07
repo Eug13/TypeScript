@@ -44,6 +44,7 @@ var arr1 = [1, 'mon', true];
 // }
 // person.showInfo();
 // person.getJob();
+//abstract
 var Dog = /** @class */ (function () {
     function Dog(name) {
         this.name = name;

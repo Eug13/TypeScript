@@ -50,6 +50,8 @@ let arr1: any[] = [1, 'mon', true];
 // person.getJob();
 
 
+//abstract
+
  class Dog {
     protected name: string;
     constructor(name: string) {
