@@ -1,18 +1,18 @@
-let NAME: string = 'Tom';
+// let NAME: string = 'Tom';
 
-let num: number = 10;
+// let num: number = 10;
 
-let b: boolean = true;
+// let b: boolean = true;
 
-let all: any = 'any can be any types';
+// let all: any = 'any can be any types';
 
-let test: string | number = 'Test';
-test = 10;
-//test = true //error
+// let test: string | number = 'Test';
+// test = 10;
+// //test = true //error
 
-let arr: string[] = ['mon', 'tue', 'web', 'other'];
+// let arr: string[] = ['mon', 'tue', 'web', 'other'];
 
-let arr1: any[] = [1, 'mon', true];
+// let arr1: any[] = [1, 'mon', true];
 
 // console.log(NAME +" "+ num+" "+ b+" "+ all);
 // console.log(arr);
@@ -52,52 +52,113 @@ let arr1: any[] = [1, 'mon', true];
 
 //abstract
 
- class Dog {
-    protected name: string;
-    constructor(name: string) {
-        this.name = name;
+//  class Dog {
+//     protected name: string;
+//     constructor(name: string) {
+//         this.name = name;
+//     }
+//     protected showDog(): void {
+//         console.log(`Dog's Name ==> ${this.name}!`)
+//     }
+
+//     public getName(): string {
+//         return this.name;
+//     }
+
+//     public setName(name: string): void {
+//         this.name = name
+//     }
+// }
+
+
+
+// let Bobik = new Dog('Bobik');
+
+// // // Bobik.name = 'Tuzik';
+// // Bobik.showDog();
+// // console.log(Bobik.getName());
+// // Bobik.setName('Tuzik');
+// // console.log(Bobik.getName());
+
+// class HunterDog extends Dog{
+//     private skill:string;
+//     constructor(name:string,skill:string){
+//         super(name);
+//         this.skill = skill;
+//     }
+//     // public showDogH():void{
+//     //     console.log(`Hunter Dog ==> ${this.name} ${this.skill}`);
+//     // }
+
+//     public showDog():void{
+//      super.showDog();
+//      console.log(`Hunter Dog ==> ${this.skill} `)  
+//     }
+// }
+
+// let Bob = new HunterDog('Bark','kick');
+
+// console.log(Bob);
+
+// Bob.showDog();
+
+
+
+//=============================================================>
+
+class Group {
+    protected groupName: string;
+    protected course: string;
+    protected study: string;
+    constructor(groupName: string, course: string, study: string) {
+        this.groupName = groupName;
+        this.course = course;
+        this.study = study;
     }
-    protected showDog(): void {
-        console.log(`Dog's Name ==> ${this.name}!`)
-    }
- 
-    public getName(): string {
-        return this.name;
+    public showGroup(): void {
+        console.log(`Group's Name ==> ${this.groupName} ${this.course} ${this.study}!`)
     }
 
-    public setName(name: string): void {
-        this.name = name
-    }
 }
 
+let group = new Group('FrontEnd','Js','Programming');
 
+group.showGroup();
 
-let Bobik = new Dog('Bobik');
-
-// // Bobik.name = 'Tuzik';
-// Bobik.showDog();
-// console.log(Bobik.getName());
-// Bobik.setName('Tuzik');
-// console.log(Bobik.getName());
-
-class HunterDog extends Dog{
-    private skill:string;
-    constructor(name:string,skill:string){
-        super(name);
-        this.skill = skill;
+class Students extends Group{
+    public students:string[];
+    constructor(groupName: string, course: string, study: string,students:string[]){
+        super(groupName,course,study);
+        this.students = students;
     }
-    // public showDogH():void{
-    //     console.log(`Hunter Dog ==> ${this.name} ${this.skill}`);
-    // }
-
-    public showDog():void{
-     super.showDog();
-     console.log(`Hunter Dog ==> ${this.skill} `)  
+    public getGroupName(): string {
+        return this.groupName;
     }
+
+    public setGroupName(groupName: string): void {
+        this.groupName = groupName;
+    }
+
+    public getCourse(): string {
+        return this.course;
+    }
+
+    public setStudy(study: string): void {
+        this.study = study;
+    }
+
+    public getStudy(): string {
+        return this.study;
+    }
+
+    public setCourse(study: string): void {
+        this.study = study;
+    }
+
+    public showStudents():void{
+             super.showGroup();
+             console.log(`Students ==> ${this.students} `)  
+            }
 }
 
-let Bob = new HunterDog('Bark','kick');
-
-console.log(Bob);
-
-Bob.showDog();
+let FrontEndGroup = new Students('FrontEnd','JS','Programming',['Vasya','Petya','Masha']);
