@@ -106,59 +106,137 @@
 
 //=============================================================>
 
-class Group {
-    protected groupName: string;
-    protected course: string;
-    protected study: string;
-    constructor(groupName: string, course: string, study: string) {
-        this.groupName = groupName;
-        this.course = course;
-        this.study = study;
-    }
-    public showGroup(): void {
-        console.log(`Group's Name ==> ${this.groupName} ${this.course} ${this.study}!`)
-    }
+// class Group {
+//     protected groupName: string;
+//     protected course: string;
+//     protected study: string;
+//     constructor(groupName: string, course: string, study: string) {
+//         this.groupName = groupName;
+//         this.course = course;
+//         this.study = study;
+//     }
+//     public showGroup(): void {
+//         console.log(`Group's Name ==> ${this.groupName} ${this.course} ${this.study}!`)
+//     }
 
+// }
+
+// let group = new Group('FrontEnd','Js','Programming');
+
+// // group.showGroup();
+
+// class Students extends Group{
+//     public students:string[];
+//     constructor(groupName: string, course: string, study: string,students:string[]){
+//         super(groupName,course,study);
+//         this.students = students;
+//     }
+//     public getGroupName(): string {
+//         return this.groupName;
+//     }
+
+//     public setGroupName(groupName: string): void {
+//         this.groupName = groupName;
+//     }
+
+//     public getCourse(): string {
+//         return this.course;
+//     }
+
+//     public setStudy(study: string): void {
+//         this.study = study;
+//     }
+
+//     public getStudy(): string {
+//         return this.study;
+//     }
+
+//     public setCourse(study: string): void {
+//         this.study = study;
+//     }
+
+//     public showStudents():void{
+//              super.showGroup();
+//              console.log(`Students ==> ${this.students} `)  
+//             }
+// }
+
+// let FrontEndGroup = new Students('FrontEnd','JS','Programming',['Vasya','Petya','Masha']);
+
+
+// FrontEndGroup.showStudents();
+
+//========================== Lesson 2 ===================================>
+
+// function test(data:any):any{
+//     return data;
+// }
+// console.log(test('test').length);
+// console.log(test(10).length);//returns undefined
+
+
+
+// function test<T>(data:T):T{
+//     return data;
+// }
+// console.log(test('test').length);
+// console.log(test(10).length);//returns error
+
+// const test = <T>(data:T):T =>{
+//     return data;
+// }
+
+// console.log(test('some'));
+
+
+interface Person {
+    name: string;
+    surname: string;
+    color?: string;
+    hair_color?: string;
+    showPerson(): void;
 }
 
-let group = new Group('FrontEnd','Js','Programming');
+// interface t{
+//     gender:string
+// }
 
-group.showGroup();
 
-class Students extends Group{
-    public students:string[];
-    constructor(groupName: string, course: string, study: string,students:string[]){
-        super(groupName,course,study);
-        this.students = students;
-    }
-    public getGroupName(): string {
-        return this.groupName;
-    }
+class User implements Person {
+    protected made_in: string;
+    name: string;
+    surname: string;
+    color?: string;
+    hair_color?: string;
 
-    public setGroupName(groupName: string): void {
-        this.groupName = groupName;
-    }
-
-    public getCourse(): string {
-        return this.course;
-    }
-
-    public setStudy(study: string): void {
-        this.study = study;
+    constructor(name: string, surname: string, color: string, hair_color: string, made_in: string) {
+        this.name = name;
+        this.surname = surname;
+        this.color = color;
+        this.hair_color = hair_color;
+        this.made_in = made_in;
+        this.showPerson();
     }
 
-    public getStudy(): string {
-        return this.study;
+    showPerson() {
+        console.log(`Name: ${this.name} , Surname: ${this.surname} , Color:${this.color}, Hair color: ${this.hair_color}, Made in: ${this.made_in}`)
     }
-
-    public setCourse(study: string): void {
-        this.study = study;
-    }
-
-    public showStudents():void{
-             super.showGroup();
-             console.log(`Students ==> ${this.students} `)  
-            }
 }
 
-let FrontEndGroup = new Students('FrontEnd','JS','Programming',['Vasya','Petya','Masha']);
+const persona = new User('Vasya', 'Bubkin', 'Black', 'red', 'Africa');
+
+class Child extends User {
+    private age: number;
+    constructor(name: string, surname: string, color: string, hair_color: string, made_in: string, age: number) {
+        super(name, surname, color, hair_color, made_in);
+
+        this.age = age;
+        this.showPerson();
+    }
+    showPerson() {
+        super.showPerson();
+        console.log(` Age: ${this.age}`);
+    }
+}
+
+const Boy = new Child('Tom', 'Thomson', 'white', 'white', 'Ukraine', 12);

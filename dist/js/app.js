@@ -1,4 +1,5 @@
 "use strict";
+// let NAME: string = 'Tom';
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -9,80 +10,37 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var NAME = 'Tom';
-var num = 10;
-var b = true;
-var all = 'any can be any types';
-var test = 'Test';
-test = 10;
-//test = true //error
-var arr = ['mon', 'tue', 'web', 'other'];
-var arr1 = [1, 'mon', true];
-// console.log(NAME +" "+ num+" "+ b+" "+ all);
-// console.log(arr);
-// function Plus(a:number,b:number):number{
-// return a+b
-// };
-// console.log(Plus(10,10));
-// function show(str:string):void{
-//     console.log(str);
+// interface t{
+//     gender:string
 // }
-// show('bobik');
-// let person: Person = {
-//     name: 'Sam',
-//     surname: 'Jakson',
-//     age: 34,
-//     showInfo(): void {
-//         console.log(`Person:  ${this.name} ${this.surname} ${this.age}`);
-//     },
-//     getJob(): void {
-//         console.log('programmer');
-//     }
-// }
-// type Person = {
-//     name: string, surname: string, age: number, showInfo: () => void, getJob?: () => void
-// }
-// person.showInfo();
-// person.getJob();
-//abstract
-var Dog = /** @class */ (function () {
-    function Dog(name) {
+var User = /** @class */ (function () {
+    function User(name, surname, color, hair_color, made_in) {
         this.name = name;
+        this.surname = surname;
+        this.color = color;
+        this.hair_color = hair_color;
+        this.made_in = made_in;
+        this.showPerson();
     }
-    Dog.prototype.showDog = function () {
-        console.log("Dog's Name ==> " + this.name + "!");
+    User.prototype.showPerson = function () {
+        console.log("Name: " + this.name + " , Surname: " + this.surname + " , Color:" + this.color + ", Hair color: " + this.hair_color + ", Made in: " + this.made_in);
     };
-    Dog.prototype.getName = function () {
-        return this.name;
-    };
-    Dog.prototype.setName = function (name) {
-        this.name = name;
-    };
-    return Dog;
+    return User;
 }());
-var Bobik = new Dog('Bobik');
-// // Bobik.name = 'Tuzik';
-// Bobik.showDog();
-// console.log(Bobik.getName());
-// Bobik.setName('Tuzik');
-// console.log(Bobik.getName());
-var HunterDog = /** @class */ (function (_super) {
-    __extends(HunterDog, _super);
-    function HunterDog(name, skill) {
-        var _this = _super.call(this, name) || this;
-        _this.skill = skill;
+var persona = new User('Vasya', 'Bubkin', 'Black', 'red', 'Africa');
+var Child = /** @class */ (function (_super) {
+    __extends(Child, _super);
+    function Child(name, surname, color, hair_color, made_in, age) {
+        var _this = _super.call(this, name, surname, color, hair_color, made_in) || this;
+        _this.age = age;
+        _this.showPerson();
         return _this;
     }
-    // public showDogH():void{
-    //     console.log(`Hunter Dog ==> ${this.name} ${this.skill}`);
-    // }
-    HunterDog.prototype.showDog = function () {
-        _super.prototype.showDog.call(this);
-        console.log("Hunter Dog ==> " + this.skill + " ");
+    Child.prototype.showPerson = function () {
+        _super.prototype.showPerson.call(this);
+        console.log(" Age: " + this.age);
     };
-    return HunterDog;
-}(Dog));
-var Bob = new HunterDog('Bark', 'kick');
-console.log(Bob);
-Bob.showDog();
+    return Child;
+}(User));
+var Boy = new Child('Tom', 'Thomson', 'white', 'white', 'Ukraine', 12);
 //# sourceMappingURL=app.js.map
